@@ -10,6 +10,7 @@ import Product from './pages/product'
 
 const App = () => {
   const [products, setProducts] = useState([])
+  const [cartProducts, setCartProducts] = useState([])
   const [searchValue, setSearchValue] = useState("");
   let [data, setData] = useState([])
   const [filteredData, setFilteredData] = useState([]);
@@ -46,22 +47,26 @@ const App = () => {
     }
     setFilteredData(dataRes)
   };
-  const handleCart = (prdouct)=>{
-    console.log("handleCart",prdouct)
-}
+
+
+
+  const handleCart = (product) => {
+    setCartProducts(prev => [...prev, product]);
+    // console.log("handleCart", cartProducts);
+  }
 
 
   return (
     <div>
-      <Navbar searchValue={searchValue} setSearchValue={setSearchValue} onClearSearch={onClearSearch} handleSearch={handleSearch}  />
+      <Navbar searchValue={searchValue} setSearchValue={setSearchValue} onClearSearch={onClearSearch} handleSearch={handleSearch} />
 
 
       <Routes>
-        <Route path='/' element={<Home products={products} filteredData = {filteredData} handleCart = {handleCart} />} />
+        <Route path='/' element={<Home products={products} filteredData={filteredData} handleCart={handleCart} />} />
         <Route path='/signup' element={<Signup />} />
         <Route path='/login' element={<Login />} />
-        <Route path='/addtocart' element={<CartPage />} />
-        <Route path='/prdouct/:id' element={<Product handleCart= {handleCart} />} />
+        <Route path='/addtocart' element={<CartPage  cartProducts = {cartProducts} setCartProducts={setCartProducts} />} />
+        <Route path='/prdouct/:id' element={<Product handleCart={handleCart} />} />
       </Routes>
 
 

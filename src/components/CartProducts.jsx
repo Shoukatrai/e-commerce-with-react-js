@@ -1,15 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const ProductCard = ({ product, handleCart }) => {
-
-    const handleAddToCart = () => {
-        handleCart(product);
-        alert('Product added to cart!');
-    };
-
+const CartProducts = ({product , removeItem}) => {
     return (
-        <>
+        
 
             <div className="flex flex-col rounded-2xl bg-amber-300 p-2 w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg mx-auto transition-transform hover:scale-105 m-3">
 
@@ -24,16 +18,20 @@ const ProductCard = ({ product, handleCart }) => {
                 <Link to={`/prdouct/${product.id}`}>
                     <span className='font-extralight cursor-pointer pb-10 hover:underline'>See More....</span>
                 </Link>
-                <button
-                    onClick={handleAddToCart}
-                    className="cursor-pointer border p-2 px-3 rounded-2xl text-white shadow-2xl text-xl bg-amber-500 mt-2 hover:bg-amber-600 transition-colors"
-                >
-                    Add to Cart
-                </button>
-            </div>
 
-        </>
+
+
+                <button onClick={()=>{
+                    removeItem(product)
+                }} className="cursor-pointer border p-2 px-3 rounded-2xl text-white shadow-2xl text-xl bg-amber-500 mt-2 hover:bg-amber-600 transition-colors">
+                    Remove From Cart
+                </button  >
+
+            </div>
+    
     )
 }
 
-export default ProductCard
+export default CartProducts
+
+

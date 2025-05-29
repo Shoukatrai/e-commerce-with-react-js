@@ -9,7 +9,7 @@ const Home = ({ products, filteredData , handleCart}) => {
       {
         productsToShow.map((product) => {
           return (
-            <ProductCard product={product}  handleCart = {handleCart}/>
+            <ProductCard key={product.id} product={product}  handleCart = {handleCart}/>
           )
         })
       }
