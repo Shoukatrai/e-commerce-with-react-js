@@ -46,6 +46,9 @@ const App = () => {
     }
     setFilteredData(dataRes)
   };
+  const handleCart = (prdouct)=>{
+    console.log("handleCart",prdouct)
+}
 
 
   return (
@@ -54,11 +57,11 @@ const App = () => {
 
 
       <Routes>
-        <Route path='/' element={<Home products={products} filteredData = {filteredData} />} />
+        <Route path='/' element={<Home products={products} filteredData = {filteredData} handleCart = {handleCart} />} />
         <Route path='/signup' element={<Signup />} />
         <Route path='/login' element={<Login />} />
         <Route path='/addtocart' element={<CartPage />} />
-        <Route path='/prdouct/:id' element={<Product />} />
+        <Route path='/prdouct/:id' element={<Product handleCart= {handleCart} />} />
       </Routes>
 
 

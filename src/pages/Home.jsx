@@ -1,7 +1,7 @@
 import React from 'react'
 import ProductCard from '../components/ProductCard'
 
-const Home = ({ products, filteredData }) => {
+const Home = ({ products, filteredData , handleCart}) => {
   const productsToShow = filteredData && filteredData.length > 0 ? filteredData : products;
 
   return (
@@ -9,7 +9,7 @@ const Home = ({ products, filteredData }) => {
       {
         productsToShow.map((product) => {
           return (
-            <ProductCard product={product} />
+            <ProductCard product={product}  handleCart = {handleCart}/>
           )
         })
       }

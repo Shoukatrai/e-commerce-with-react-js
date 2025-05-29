@@ -1,8 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const ProductCard = ({ product }) => {
-    console.log("product", product)
+const ProductCard = ({ product , handleCart}) => {
+    
+
+
     return (
         <>
 
@@ -22,7 +24,9 @@ const ProductCard = ({ product }) => {
 
                 
                 
-                <button className="cursor-pointer border p-2 px-3 rounded-2xl text-white shadow-2xl text-xl bg-amber-500 mt-2 hover:bg-amber-600 transition-colors">
+                <button onClick={()=>{
+                    handleCart(product)
+                }} className="cursor-pointer border p-2 px-3 rounded-2xl text-white shadow-2xl text-xl bg-amber-500 mt-2 hover:bg-amber-600 transition-colors">
                     Add to Cart
                 </button  >
                 

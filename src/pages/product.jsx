@@ -5,7 +5,7 @@ import ProductCard from '../components/ProductCard'
 import FullProductCard from '../components/FullProductCard'
 import { IoMdClose } from 'react-icons/io'
 
-const Product = () => {
+const Product = ({handleCart}) => {
     const [singleProduct, setSingleProduct] = useState(null)
     const [error, setError] = useState("")
     const params = useParams()
@@ -44,7 +44,7 @@ const Product = () => {
                     {error} <IoMdClose onClick={NavigateHome} className='cursor-pointer'/>
                 </div>
             ) : (
-                singleProduct && <FullProductCard product={singleProduct} />
+                singleProduct && <FullProductCard product={singleProduct} handleCart = {handleCart} />
             )}
         </div>
     )
