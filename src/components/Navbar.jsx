@@ -17,7 +17,8 @@ const navigateToCart = ()=>{
           <Link className='font-bold text-2xl whitespace-nowrap' to={"/"}>
             <span className='text-white'>Ecommerce </span><span className='text-black'>Store</span>
           </Link>
-          {/* SearchBar Centered on Desktop */}
+          
+
           <div className="flex-1 hidden sm:flex justify-center">
             <SearchBar
               value={searchValue}
@@ -26,9 +27,9 @@ const navigateToCart = ()=>{
               handleSearch={handleSearch}
             />
           </div>
-          {/* Hamburger Button */}
+        
           <button
-            className="sm:hidden flex flex-col justify-center items-center w-10 h-10"
+            className="sm:hidden flex flex-col justify-center items-center w-10 h-10 cursor-pointer"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle navigation"
           >
@@ -36,14 +37,14 @@ const navigateToCart = ()=>{
             <span className={`block h-1 w-6 bg-black mb-1 transition-all duration-300 ${isOpen ? 'opacity-0' : ''}`}></span>
             <span className={`block h-1 w-6 bg-black transition-all duration-300 ${isOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
           </button>
-          {/* Desktop Cart */}
+         
           <div className="hidden sm:flex items-center gap-4">
             <button onClick={navigateToCart} >
               <FaShoppingCart className='cursor-pointer h-8 w-8 text-primary transition-all duration-300 ease-in-out transform hover:scale-120'/>
             </button>
           </div>
         </div>
-        {/* Mobile Nav */}
+     
         {isOpen && (
           <div className="flex flex-col sm:hidden mt-3 gap-3">
             <SearchBar

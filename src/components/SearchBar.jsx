@@ -6,16 +6,16 @@ import { IoSearchOutline } from 'react-icons/io5'
 const SearchBar = ({ value, onChange, onClearSearch, handleSearch }) => {
 
     return (
-        <div className='w-40 sm:w-60 md:w-80 flex items-center justify-between px-4 bg-slate-100 rounded-md'>
+        <div className='max-w-full lg:w-100  flex items-center justify-between px-4 bg-slate-100 rounded-2xl'>
             <input
                 type="text"
-                placeholder='Search Notes...'
-                className='w-full text-xs bg-transparent py-[11px] outline-none'
+                placeholder='Search Products...'
+                className='w-full  text-xs bg-transparent py-[11px] outline-none'
                 value={value}
                 onChange={onChange}
             />
             {value && <IoMdClose
-                className='text-slate-500 text-xl cursor-pointer hover:text-black mr-3'
+                className='text-slate-500 text-xl cursor-pointer hover:text-black mr-3 '
                 onClick={onClearSearch}
             />}
             <FaMagnifyingGlass
